@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="spinillos.dagger_espresso.presentation.main.MainActivity">
+
+    <TextView
+        android:id="@+id/picture_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="@dimen/main_picture_text_margin"
+        android:text="@string/main_default_title"
+        />
+
+    <Button
+        android:id="@+id/take_picture_button"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/main_button_height"
+        android:layout_marginLeft="@dimen/main_button_left_margin"
+        android:layout_marginRight="@dimen/main_button_right_margin"
+        android:text="@string/main_button_title"
+        android:background="@color/colorPrimaryDark"
+        android:textColor="@android:color/white"
+        />
+</LinearLayout>

@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">dagger-espresso</string>
+
+    <string name="main_default_title">No title</string>
+    <string name="main_button_title">Take picture</string>
+    <string name="main_snack_camera_text">Camera permission is needed to use the camera.</string>
+    <string name="main_snack_camera_button">OK</string>
+</resources>
