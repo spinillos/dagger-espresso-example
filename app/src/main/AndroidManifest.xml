@@ -4,10 +4,14 @@
 
     <uses-permission android:name="android.permission.CAMERA"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.hardware.camera.autofocus"/>
 
     <permission android:name="android.media.action.IMAGE_CAPTURE"/>
 
+    <uses-feature
+        android:name="android.hardware.camera2"
+        android:required="true"/>
     <uses-feature
         android:name="android.hardware.camera"
         android:required="true"/>
@@ -20,7 +24,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".presentation.splash.SplashActivity"
+            android:name=".presentation.menu.MenuActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -33,6 +37,18 @@
             android:name=".presentation.main.MainActivity"
             android:screenOrientation="portrait"/>
 
+        <provider
+            android:authorities="spinillos.dagger_espresso.fileProvider"
+            android:name="android.support.v4.content.FileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true"
+            >
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths"
+                />
+
+        </provider>
     </application>
 
 </manifest>

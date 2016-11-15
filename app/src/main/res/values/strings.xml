@@ -1,8 +1,14 @@
 <resources>
     <string name="app_name">dagger-espresso</string>
 
+    <string name="menu_camera">Camera example</string>
+
     <string name="main_default_title">No title</string>
     <string name="main_button_title">Take picture</string>
     <string name="main_snack_camera_text">Camera permission is needed to use the camera.</string>
     <string name="main_snack_camera_button">OK</string>
+    <string name="main_empty_list_description">No pictures to show</string>
+    <string name="main_loading_pictures_error">Error while loading pictures</string>
+
+    <string name="main_item_content_description">Picture</string>
 </resources>

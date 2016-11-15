@@ -23,15 +23,9 @@ public abstract class BaseActivity<V extends BaseView, P extends BasePresenter<V
         super.onCreate(savedInstanceState);
         setContentView(getLayoutRes());
         ButterKnife.bind(this);
+        setupViews();
         injectDependencies();
-        presenter = getPresenter();
-        presenter.setView(getView());
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        presenter.resume();
+        initializePresenter();
     }
 
     @LayoutRes
@@ -39,16 +33,34 @@ public abstract class BaseActivity<V extends BaseView, P extends BasePresenter<V
 
     public abstract void injectDependencies();
 
+    protected void setupViews() {
+
+    }
+
     public void setPresenter(P presenter) {
         this.presenter = presenter;
+        presenter.setView(getView());
+        presenter.initialize();
     }
 
     public abstract V getView();
 
-    public abstract P getPresenter();
+    public abstract P createPresenter();
+
+    protected P getPresenter() {
+        return presenter;
+    }
 
     public ActivityComponentBuilder getComponentBuilder() {
         return ((EspressoApplication) getApplication())
                 .getActivityComponent(this.getClass());
+    }
+
+    private void initializePresenter() {
+        if (presenter == null) {
+            presenter = createPresenter();
+            presenter.setView(getView());
+            presenter.initialize();
+        }
     }
 }

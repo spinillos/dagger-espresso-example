@@ -7,6 +7,10 @@ import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
+import spinillos.dagger_espresso.framework.executor.JobExecutor;
+import spinillos.dagger_espresso.framework.executor.PostThreadExecutor;
+import spinillos.dagger_espresso.framework.executor.ThreadExecutor;
+import spinillos.dagger_espresso.framework.executor.UIThread;
 import spinillos.dagger_espresso.presentation.Navigator;
 
 /**
@@ -22,7 +26,6 @@ public class ApplicationModule {
         this.application = application;
     }
 
-    @Singleton
     @Provides
     Context providesContext() {
         return application;
@@ -34,5 +37,16 @@ public class ApplicationModule {
         return new Navigator();
     }
 
+    @Singleton
+    @Provides
+    ThreadExecutor providesThreadExecutor() {
+        return new JobExecutor();
+    }
+
+    @Singleton
+    @Provides
+    PostThreadExecutor providesPostThreadExecutor() {
+        return new UIThread();
+    }
 
 }

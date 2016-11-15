@@ -4,7 +4,6 @@ import android.app.Activity;
 
 import dagger.Module;
 import dagger.Provides;
-import spinillos.dagger_espresso.presentation.di.scopes.ActivityScope;
 
 /**
  * Created by Selene on 05/11/16.
@@ -19,7 +18,6 @@ public class ActivityModule {
         this.activity = activity;
     }
 
-    @ActivityScope
     @Provides
     Activity providesActivity() {
         return activity;

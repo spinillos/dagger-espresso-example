@@ -19,3 +19,18 @@ allprojects {
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
+
+ext {
+    libs = [
+            support_version  : "25.0.0",
+            butterknife      : "8.4.0",
+            dagger           : "2.7",
+            picasso          : "2.5.2",
+            javax_annotations: "1.0",
+            espresso         : "2.2.2",
+            espresso_runner  : "0.5",
+            mockito          : "1.10.19",
+            junit            : "4.12",
+            dexMaker         : "1.4"
+    ]
+}

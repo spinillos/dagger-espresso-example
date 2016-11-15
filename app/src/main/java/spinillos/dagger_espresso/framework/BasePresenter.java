@@ -18,5 +18,5 @@ public abstract class BasePresenter<V extends BaseView> {
         return view.get();
     }
 
-    public abstract void resume();
+    public abstract void initialize();
 }
