@@ -8,10 +8,6 @@ import java.util.concurrent.TimeUnit;
 
 import javax.inject.Inject;
 
-/**
- * Created by Selene on 10/11/16.
- */
-
 public class JobExecutor implements ThreadExecutor {
 
     private static final int INITIAL_POOL_SIZE = 3;

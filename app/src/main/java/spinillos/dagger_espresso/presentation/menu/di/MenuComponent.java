@@ -6,10 +6,6 @@ import spinillos.dagger_espresso.presentation.di.component.activity.ActivityComp
 import spinillos.dagger_espresso.presentation.di.module.ActivityModule;
 import spinillos.dagger_espresso.presentation.menu.MenuActivity;
 
-/**
- * Created by Selene on 13/11/16.
- */
-
 @Subcomponent(modules = ActivityModule.class)
 public interface MenuComponent extends ActivityComponent {
 

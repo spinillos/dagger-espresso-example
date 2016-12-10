@@ -9,10 +9,6 @@ import spinillos.dagger_espresso.presentation.Navigator;
 import spinillos.dagger_espresso.presentation.di.module.ActivityModule;
 import spinillos.dagger_espresso.presentation.menu.di.MenuComponent;
 
-/**
- * Created by Selene on 13/11/16.
- */
-
 public class MenuActivity extends BaseActivity<MenuView, MenuPresenter> implements MenuView {
 
     @Inject

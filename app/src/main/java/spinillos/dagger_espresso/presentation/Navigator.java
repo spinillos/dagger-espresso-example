@@ -8,10 +8,6 @@ import android.support.annotation.NonNull;
 
 import spinillos.dagger_espresso.presentation.main.MainActivity;
 
-/**
- * Created by Selene on 09/11/16.
- */
-
 public class Navigator {
 
     private static final String PACKAGE = "package:";

@@ -11,10 +11,6 @@ import spinillos.dagger_espresso.presentation.di.component.DaggerApplicationComp
 import spinillos.dagger_espresso.presentation.di.component.activity.ActivityComponentBuilder;
 import spinillos.dagger_espresso.presentation.di.module.ApplicationModule;
 
-/**
- * Created by Selene on 05/11/16.
- */
-
 public class EspressoApplication extends Application {
 
     @Inject

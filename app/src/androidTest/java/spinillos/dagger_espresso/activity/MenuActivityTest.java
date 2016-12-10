@@ -17,10 +17,6 @@ import static android.support.test.espresso.intent.Intents.intended;
 import static android.support.test.espresso.intent.matcher.IntentMatchers.hasComponent;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 
-/**
- * Created by Selene on 13/11/16.
- */
-
 @RunWith(AndroidJUnit4.class)
 public class MenuActivityTest {
 

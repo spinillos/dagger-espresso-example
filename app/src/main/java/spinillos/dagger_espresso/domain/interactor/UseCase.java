@@ -3,10 +3,6 @@ package spinillos.dagger_espresso.domain.interactor;
 import spinillos.dagger_espresso.framework.executor.PostThreadExecutor;
 import spinillos.dagger_espresso.framework.executor.ThreadExecutor;
 
-/**
- * Created by Selene on 10/11/16.
- */
-
 public abstract class UseCase implements Runnable {
 
     private final ThreadExecutor threadExecutor;

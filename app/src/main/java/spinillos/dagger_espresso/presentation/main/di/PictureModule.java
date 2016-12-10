@@ -8,10 +8,6 @@ import spinillos.dagger_espresso.data.datastore.DataSource;
 import spinillos.dagger_espresso.data.datastore.PictureDataSource;
 import spinillos.dagger_espresso.data.entity.PictureResource;
 
-/**
- * Created by Selene on 13/11/16.
- */
-
 @Module
 public class PictureModule {
 

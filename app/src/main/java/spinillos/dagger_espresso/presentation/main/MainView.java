@@ -5,10 +5,6 @@ import java.util.List;
 import spinillos.dagger_espresso.framework.BaseView;
 import spinillos.dagger_espresso.presentation.main.model.Picture;
 
-/**
- * Created by Selene on 06/11/16.
- */
-
 public interface MainView extends BaseView {
 
     void checkPermissions();

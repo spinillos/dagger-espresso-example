@@ -9,10 +9,6 @@ import android.widget.ImageView;
 
 import spinillos.dagger_espresso.R;
 
-/**
- * Created by Selene on 17/11/16.
- */
-
 public class PictureView extends ImageView {
 
     private float mProportion;

@@ -8,10 +8,6 @@ import spinillos.dagger_espresso.data.datastore.DataSource;
 import spinillos.dagger_espresso.data.datastore.ResourceCallback;
 import spinillos.dagger_espresso.data.entity.PictureResource;
 
-/**
- * Created by Selene on 11/11/16.
- */
-
 public class PictureRepository {
 
     private DataSource<List<PictureResource>> dataSource;

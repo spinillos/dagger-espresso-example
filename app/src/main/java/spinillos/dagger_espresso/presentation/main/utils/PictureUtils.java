@@ -10,10 +10,6 @@ import java.util.Locale;
 
 import spinillos.dagger_espresso.framework.Constants;
 
-/**
- * Created by Selene on 15/11/16.
- */
-
 public class PictureUtils {
 
     public static File createTempFile() throws IOException {

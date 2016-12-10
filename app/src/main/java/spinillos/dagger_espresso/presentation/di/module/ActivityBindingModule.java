@@ -10,10 +10,6 @@ import spinillos.dagger_espresso.presentation.main.di.MainComponent;
 import spinillos.dagger_espresso.presentation.menu.MenuActivity;
 import spinillos.dagger_espresso.presentation.menu.di.MenuComponent;
 
-/**
- * Created by Selene on 05/11/16.
- */
-
 @Module(subcomponents = {MainComponent.class, MenuComponent.class})
 public abstract class ActivityBindingModule {
 

@@ -7,10 +7,6 @@ import spinillos.dagger_espresso.presentation.di.module.ActivityModule;
 import spinillos.dagger_espresso.presentation.di.scopes.ActivityScope;
 import spinillos.dagger_espresso.presentation.main.MainActivity;
 
-/**
- * Created by Selene on 05/11/16.
- */
-
 @ActivityScope
 @Subcomponent(modules = {ActivityModule.class, PictureModule.class})
 public interface MainComponent extends ActivityComponent {

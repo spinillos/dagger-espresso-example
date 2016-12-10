@@ -13,10 +13,6 @@ import spinillos.dagger_espresso.framework.executor.ThreadExecutor;
 import spinillos.dagger_espresso.framework.executor.UIThread;
 import spinillos.dagger_espresso.presentation.Navigator;
 
-/**
- * Created by Selene on 05/11/16.
- */
-
 @Module
 public class ApplicationModule {
 

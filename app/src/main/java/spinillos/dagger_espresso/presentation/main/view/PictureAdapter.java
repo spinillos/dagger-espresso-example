@@ -16,10 +16,6 @@ import java.util.List;
 import spinillos.dagger_espresso.R;
 import spinillos.dagger_espresso.presentation.main.model.Picture;
 
-/**
- * Created by Selene on 13/11/16.
- */
-
 public class PictureAdapter extends RecyclerView.Adapter<PictureViewHolder> {
 
     private Context context;

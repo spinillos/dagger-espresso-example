@@ -11,10 +11,6 @@ import spinillos.dagger_espresso.data.entity.PictureResource;
 import spinillos.dagger_espresso.data.exception.NoResourcesException;
 import spinillos.dagger_espresso.framework.Constants;
 
-/**
- * Created by Selene on 13/11/16.
- */
-
 public class PictureDataSource implements DataSource<List<PictureResource>> {
 
     @Override

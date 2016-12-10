@@ -4,10 +4,6 @@ import android.app.Application;
 import android.content.Context;
 import android.support.test.runner.AndroidJUnitRunner;
 
-/**
- * Created by Selene on 07/11/16.
- */
-
 public class EspressoRunner extends AndroidJUnitRunner {
 
     @Override

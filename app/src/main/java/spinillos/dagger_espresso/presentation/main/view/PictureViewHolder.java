@@ -7,10 +7,6 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import spinillos.dagger_espresso.R;
 
-/**
- * Created by Selene on 13/11/16.
- */
-
 public class PictureViewHolder extends RecyclerView.ViewHolder {
 
     @BindView(R.id.picture)

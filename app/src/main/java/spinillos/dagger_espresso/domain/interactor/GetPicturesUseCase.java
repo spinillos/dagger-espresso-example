@@ -13,10 +13,6 @@ import spinillos.dagger_espresso.framework.executor.PostThreadExecutor;
 import spinillos.dagger_espresso.framework.executor.ThreadExecutor;
 import spinillos.dagger_espresso.presentation.main.model.Picture;
 
-/**
- * Created by Selene on 10/11/16.
- */
-
 public class GetPicturesUseCase extends UseCase {
 
     private PictureRepository repository;

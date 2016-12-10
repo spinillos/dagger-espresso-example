@@ -17,10 +17,6 @@ import spinillos.dagger_espresso.framework.BasePresenter;
 import spinillos.dagger_espresso.presentation.main.model.Picture;
 import spinillos.dagger_espresso.presentation.main.utils.PictureUtils;
 
-/**
- * Created by Selene on 06/11/16.
- */
-
 public class MainPresenter extends BasePresenter<MainView> {
 
     private final GetPicturesUseCase getPicturesUseCase;

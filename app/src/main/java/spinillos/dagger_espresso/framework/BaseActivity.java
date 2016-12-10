@@ -9,10 +9,6 @@ import butterknife.ButterKnife;
 import spinillos.dagger_espresso.EspressoApplication;
 import spinillos.dagger_espresso.presentation.di.component.activity.ActivityComponentBuilder;
 
-/**
- * Created by Selene on 05/11/16.
- */
-
 public abstract class BaseActivity<V extends BaseView, P extends BasePresenter<V>>
         extends AppCompatActivity {
 

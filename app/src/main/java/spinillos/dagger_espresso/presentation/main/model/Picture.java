@@ -1,9 +1,5 @@
 package spinillos.dagger_espresso.presentation.main.model;
 
-/**
- * Created by Selene on 13/11/16.
- */
-
 public class Picture {
 
     private String path;

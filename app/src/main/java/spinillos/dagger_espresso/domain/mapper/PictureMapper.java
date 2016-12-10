@@ -5,10 +5,6 @@ import javax.inject.Inject;
 import spinillos.dagger_espresso.data.entity.PictureResource;
 import spinillos.dagger_espresso.presentation.main.model.Picture;
 
-/**
- * Created by Selene on 13/11/16.
- */
-
 public class PictureMapper implements Mapper<PictureResource, Picture> {
 
     @Inject

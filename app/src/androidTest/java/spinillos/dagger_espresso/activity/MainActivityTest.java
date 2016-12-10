@@ -52,10 +52,6 @@ import static org.mockito.Mockito.doAnswer;
 import static org.mockito.Mockito.when;
 import static spinillos.dagger_espresso.matcher.RecyclerViewMatcher.withNumberOfItems;
 
-/**
- * Created by Selene on 11/11/16.
- */
-
 @RunWith(AndroidJUnit4.class)
 public class MainActivityTest {
 
