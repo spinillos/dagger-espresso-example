@@ -33,5 +33,5 @@ public interface MainView extends BaseView {
 
     void hideLoading();
 
-    void addNewPictureToList(Picture picture);
+    void onNewPictureAdded(Picture picture);
 }

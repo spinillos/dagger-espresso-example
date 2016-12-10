@@ -3,22 +3,19 @@ package spinillos.dagger_espresso.presentation.main;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.net.Uri;
+import android.graphics.Bitmap;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
-import android.support.v4.content.FileProvider;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import java.io.File;
-import java.io.IOException;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -31,7 +28,6 @@ import spinillos.dagger_espresso.presentation.Navigator;
 import spinillos.dagger_espresso.presentation.di.module.ActivityModule;
 import spinillos.dagger_espresso.presentation.main.di.MainComponent;
 import spinillos.dagger_espresso.presentation.main.model.Picture;
-import spinillos.dagger_espresso.presentation.main.utils.PictureUtils;
 import spinillos.dagger_espresso.presentation.main.view.PictureAdapter;
 
 public class MainActivity extends BaseActivity<MainView, MainPresenter> implements MainView {
@@ -57,12 +53,7 @@ public class MainActivity extends BaseActivity<MainView, MainPresenter> implemen
     @Inject
     MainPresenter presenter;
 
-    @Inject
-    PictureUtils utils;
-
     private PictureAdapter adapter;
-
-    private Uri uri;
 
     @Override
     public int getLayoutRes() {
@@ -103,13 +94,6 @@ public class MainActivity extends BaseActivity<MainView, MainPresenter> implemen
 
     @OnClick(R.id.button_camera)
     public void takePicture() {
-        File file = null;
-        try {
-            file = utils.createTempFile();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        uri = FileProvider.getUriForFile(this, getPackageName() + ".fileProvider", file);
         Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
             startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
@@ -119,7 +103,8 @@ public class MainActivity extends BaseActivity<MainView, MainPresenter> implemen
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
-            getPresenter().onPictureCaptured(uri.getPath());
+            Bitmap photo = (Bitmap) data.getExtras().get("data");
+            getPresenter().onPictureCaptured(photo);
         } else {
             super.onActivityResult(requestCode, resultCode, data);
         }
@@ -186,7 +171,9 @@ public class MainActivity extends BaseActivity<MainView, MainPresenter> implemen
     }
 
     @Override
-    public void addNewPictureToList(Picture picture) {
+    public void onNewPictureAdded(Picture picture) {
+        emptyListView.setVisibility(View.GONE);
+        recyclerView.setVisibility(View.VISIBLE);
         adapter.addPicture(picture);
     }
 
