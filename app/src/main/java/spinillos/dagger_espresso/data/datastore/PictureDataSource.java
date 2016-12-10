@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import spinillos.dagger_espresso.data.entity.PictureResource;
-import spinillos.dagger_espresso.data.exception.ResourceException;
+import spinillos.dagger_espresso.data.exception.NoResourcesException;
 import spinillos.dagger_espresso.framework.Constants;
 
 /**
@@ -23,10 +23,10 @@ public class PictureDataSource implements DataSource<List<PictureResource>> {
         List<PictureResource> resources = new ArrayList<>();
 
         String path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES)
-                .getAbsolutePath();
+                .getPath();
 
         File root = new File(path);
-        if (root.isDirectory()) {
+        if (root.isDirectory() && root.list() != null) {
             for (File file : root.listFiles(filter())) {
                 PictureResource resource = new PictureResource();
                 resource.setPath(file.getAbsolutePath());
@@ -35,7 +35,7 @@ public class PictureDataSource implements DataSource<List<PictureResource>> {
 
             callback.onResourcesLoaded(resources);
         } else {
-            callback.onError(new ResourceException());
+            callback.onError(new NoResourcesException());
         }
 
     }
