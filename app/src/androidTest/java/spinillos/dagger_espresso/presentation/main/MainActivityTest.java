@@ -69,7 +69,7 @@ public class MainActivityTest {
 
     private MainComponent component = new MainComponent() {
         @Override
-        public void inject(MainActivity activity) {
+        public void injectMembers(MainActivity activity) {
             activity.presenter = new MainPresenter(picturesUseCase, pictureUtils);
         }
     };
