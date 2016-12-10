@@ -1,6 +1,5 @@
 package spinillos.dagger_espresso.presentation.main.utils;
 
-import android.content.Context;
 import android.os.Environment;
 
 import java.io.File;
@@ -17,13 +16,7 @@ import spinillos.dagger_espresso.framework.Constants;
 
 public class PictureUtils {
 
-    private Context context;
-
-    public PictureUtils(Context context) {
-        this.context = context;
-    }
-
-    public File createTempFile() throws IOException {
+    public static File createTempFile() throws IOException {
         String timestamp = new SimpleDateFormat("yyyyMMdd_HHmmss", Locale.getDefault())
                 .format(new Date());
         String fileName = Constants.PICTURE_PREFIX + timestamp + "_";
