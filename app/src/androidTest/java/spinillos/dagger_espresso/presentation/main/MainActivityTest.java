@@ -189,12 +189,9 @@ public class MainActivityTest {
     private List<Picture> createAListWithNumberOfPictures(int num) {
         List<Picture> list = new ArrayList<>();
 
-        String path
-                = "/storage/emulated/0/Pictures/espresso_20161117_231613_321043582.jpg";
-
         for (int i = 0; i < num; i++) {
             Picture picture = new Picture();
-            picture.setPath(path);
+            picture.setPath(PICTURE_PATH);
             list.add(picture);
         }
 
