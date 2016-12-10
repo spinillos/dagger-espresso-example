@@ -8,4 +8,9 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <declare-styleable name="ProportionalHeight">
+        <attr name="heightProportionToWidth" format="float" />
+    </declare-styleable>
+
+
 </resources>

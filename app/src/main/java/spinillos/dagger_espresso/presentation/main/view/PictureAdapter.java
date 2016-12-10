@@ -1,11 +1,15 @@
 package spinillos.dagger_espresso.presentation.main.view;
 
+import com.squareup.picasso.Picasso;
+
 import android.content.Context;
+import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -35,7 +39,11 @@ public class PictureAdapter extends RecyclerView.Adapter<PictureViewHolder> {
     @Override
     public void onBindViewHolder(PictureViewHolder holder, int position) {
         Picture picture = pictures.get(position);
-        holder.setPicture(picture.getPath());
+        Picasso.with(context)
+                .load(Uri.fromFile(new File(picture.getPath())))
+                .resize(300, 300)
+                .centerInside()
+                .into(holder.getPicture());
     }
 
     @Override
