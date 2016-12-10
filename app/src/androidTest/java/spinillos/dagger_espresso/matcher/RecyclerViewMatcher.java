@@ -7,10 +7,6 @@ import android.support.test.espresso.matcher.BoundedMatcher;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
-/**
- * Created by Selene on 13/11/16.
- */
-
 public class RecyclerViewMatcher {
 
     public static Matcher<View> withNumberOfItems(final int numberOfItems) {

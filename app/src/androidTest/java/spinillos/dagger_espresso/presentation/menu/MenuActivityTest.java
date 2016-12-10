@@ -1,4 +1,4 @@
-package spinillos.dagger_espresso.activity;
+package spinillos.dagger_espresso.presentation.menu;
 
 import org.junit.Rule;
 import org.junit.Test;

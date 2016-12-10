@@ -1,4 +1,4 @@
-package spinillos.dagger_espresso.activity;
+package spinillos.dagger_espresso.presentation.main;
 
 import org.junit.Assume;
 import org.junit.Before;
