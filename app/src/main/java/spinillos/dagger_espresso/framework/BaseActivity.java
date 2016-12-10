@@ -33,12 +33,6 @@ public abstract class BaseActivity<V extends BaseView, P extends BasePresenter<V
 
     }
 
-    public void setPresenter(P presenter) {
-        this.presenter = presenter;
-        presenter.setView(getView());
-        presenter.initialize();
-    }
-
     public abstract V getView();
 
     public abstract P createPresenter();
@@ -55,8 +49,9 @@ public abstract class BaseActivity<V extends BaseView, P extends BasePresenter<V
     private void initializePresenter() {
         if (presenter == null) {
             presenter = createPresenter();
-            presenter.setView(getView());
-            presenter.initialize();
         }
+
+        presenter.setView(getView());
+        presenter.initialize();
     }
 }

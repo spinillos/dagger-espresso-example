@@ -3,9 +3,6 @@ package spinillos.dagger_espresso.presentation.main;
 import android.graphics.Bitmap;
 import android.net.Uri;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
 import java.util.Collections;
 import java.util.List;
 
@@ -21,9 +18,13 @@ public class MainPresenter extends BasePresenter<MainView> {
 
     private final GetPicturesUseCase getPicturesUseCase;
 
+    private final PictureUtils pictureUtils;
+
     @Inject
-    public MainPresenter(GetPicturesUseCase getPicturesUseCase) {
+    public MainPresenter(GetPicturesUseCase getPicturesUseCase,
+            PictureUtils pictureUtils) {
         this.getPicturesUseCase = getPicturesUseCase;
+        this.pictureUtils = pictureUtils;
     }
 
     @Override
@@ -79,26 +80,10 @@ public class MainPresenter extends BasePresenter<MainView> {
     }
 
     public void onPictureCaptured(Bitmap bitmap) {
-        Uri tempUri = getImageUri(bitmap);
+        Uri tempUri = pictureUtils.saveBitmapToFile(bitmap);
         Picture picture = new Picture();
         picture.setPath(tempUri.getPath());
         getView().onNewPictureAdded(picture);
-    }
-
-    private Uri getImageUri(Bitmap inImage) {
-
-        File file = null;
-
-        try {
-            file = PictureUtils.createTempFile();
-            FileOutputStream out = new FileOutputStream(file);
-            inImage.compress(Bitmap.CompressFormat.JPEG, 90, out);
-            out.flush();
-            out.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return Uri.parse(file.getAbsolutePath());
     }
 
 }

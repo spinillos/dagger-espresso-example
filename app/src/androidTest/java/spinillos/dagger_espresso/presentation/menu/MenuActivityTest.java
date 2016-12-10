@@ -9,7 +9,6 @@ import android.support.test.runner.AndroidJUnit4;
 
 import spinillos.dagger_espresso.R;
 import spinillos.dagger_espresso.presentation.main.MainActivity;
-import spinillos.dagger_espresso.presentation.menu.MenuActivity;
 
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.action.ViewActions.click;

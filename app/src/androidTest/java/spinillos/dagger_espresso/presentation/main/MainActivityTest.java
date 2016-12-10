@@ -18,6 +18,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.provider.MediaStore;
 import android.support.test.espresso.intent.rule.IntentsTestRule;
 import android.support.test.runner.AndroidJUnit4;
@@ -31,10 +32,9 @@ import spinillos.dagger_espresso.TestUtils;
 import spinillos.dagger_espresso.domain.exception.NoDataException;
 import spinillos.dagger_espresso.domain.interactor.GetPicturesUseCase;
 import spinillos.dagger_espresso.presentation.di.module.ActivityModule;
-import spinillos.dagger_espresso.presentation.main.MainActivity;
-import spinillos.dagger_espresso.presentation.main.MainPresenter;
 import spinillos.dagger_espresso.presentation.main.di.MainComponent;
 import spinillos.dagger_espresso.presentation.main.model.Picture;
+import spinillos.dagger_espresso.presentation.main.utils.PictureUtils;
 
 import static android.support.test.InstrumentationRegistry.getTargetContext;
 import static android.support.test.espresso.Espresso.onView;
@@ -55,17 +55,22 @@ import static spinillos.dagger_espresso.matcher.RecyclerViewMatcher.withNumberOf
 @RunWith(AndroidJUnit4.class)
 public class MainActivityTest {
 
+    private static final String PICTURE_PATH
+            = "/storage/emulated/0/Pictures/espresso_20161117_231613_321043582.jpg";
+
     @Mock
     MainComponent.Builder builder;
 
     @Mock
     GetPicturesUseCase picturesUseCase;
 
+    @Mock
+    PictureUtils pictureUtils;
+
     private MainComponent component = new MainComponent() {
         @Override
         public void inject(MainActivity activity) {
-            MainPresenter presenter = new MainPresenter(picturesUseCase);
-            activity.setPresenter(presenter);
+            activity.presenter = new MainPresenter(picturesUseCase, pictureUtils);
         }
     };
 
@@ -120,6 +125,9 @@ public class MainActivityTest {
 
         respondWithNoData();
 
+        when(pictureUtils.saveBitmapToFile(any(Bitmap.class))).thenReturn(
+                Uri.parse(PICTURE_PATH));
+
         mainActivity.launchActivity(null);
 
         onView(withId(R.id.button_camera)).perform(click());
@@ -133,6 +141,9 @@ public class MainActivityTest {
     public void testCamera() {
 
         respondWithNoData();
+
+        when(pictureUtils.saveBitmapToFile(any(Bitmap.class))).thenReturn(
+                Uri.parse(PICTURE_PATH));
 
         mainActivity.launchActivity(null);
 
