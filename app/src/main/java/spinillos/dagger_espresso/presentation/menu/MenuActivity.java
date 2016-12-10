@@ -27,7 +27,7 @@ public class MenuActivity extends BaseActivity<MenuView, MenuPresenter> implemen
         ((MenuComponent.Builder) getComponentBuilder())
                 .activityModule(new ActivityModule(this))
                 .build()
-                .inject(this);
+                .injectMembers(this);
     }
 
     @Override

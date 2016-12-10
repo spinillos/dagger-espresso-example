@@ -8,13 +8,13 @@ import java.util.Map;
 import javax.inject.Inject;
 
 import spinillos.dagger_espresso.presentation.di.component.DaggerApplicationComponent;
-import spinillos.dagger_espresso.presentation.di.component.activity.ActivityComponentBuilder;
+import spinillos.dagger_espresso.presentation.di.component.activity.ComponentBuilder;
 import spinillos.dagger_espresso.presentation.di.module.ApplicationModule;
 
 public class EspressoApplication extends Application {
 
     @Inject
-    Map<Class<? extends Activity>, ActivityComponentBuilder> componentBuilder;
+    Map<Class<? extends Activity>, ComponentBuilder> componentBuilder;
 
     @Override
     public void onCreate() {
@@ -29,7 +29,7 @@ public class EspressoApplication extends Application {
                 .inject(this);
     }
 
-    public ActivityComponentBuilder getActivityComponent(Class<? extends Activity> activity) {
+    public ComponentBuilder getActivityComponent(Class<? extends Activity> activity) {
         return componentBuilder.get(activity);
     }
 }

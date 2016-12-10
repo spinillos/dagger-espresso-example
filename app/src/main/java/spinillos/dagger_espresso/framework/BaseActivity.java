@@ -7,7 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 
 import butterknife.ButterKnife;
 import spinillos.dagger_espresso.EspressoApplication;
-import spinillos.dagger_espresso.presentation.di.component.activity.ActivityComponentBuilder;
+import spinillos.dagger_espresso.presentation.di.component.activity.ComponentBuilder;
 
 public abstract class BaseActivity<V extends BaseView, P extends BasePresenter<V>>
         extends AppCompatActivity {
@@ -41,7 +41,7 @@ public abstract class BaseActivity<V extends BaseView, P extends BasePresenter<V
         return presenter;
     }
 
-    public ActivityComponentBuilder getComponentBuilder() {
+    public ComponentBuilder getComponentBuilder() {
         return ((EspressoApplication) getApplication())
                 .getActivityComponent(this.getClass());
     }

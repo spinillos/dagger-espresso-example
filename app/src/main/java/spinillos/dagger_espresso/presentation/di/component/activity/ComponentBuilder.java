@@ -1,6 +1,6 @@
 package spinillos.dagger_espresso.presentation.di.component.activity;
 
-public interface ActivityComponentBuilder<C extends ActivityComponent> {
+public interface ComponentBuilder<C extends ActivityComponent> {
 
     C build();
 }

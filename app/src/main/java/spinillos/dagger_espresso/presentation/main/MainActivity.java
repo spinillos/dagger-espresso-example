@@ -65,7 +65,7 @@ public class MainActivity extends BaseActivity<MainView, MainPresenter> implemen
         ((MainComponent.Builder) getComponentBuilder())
                 .activityModule(new ActivityModule(this))
                 .build()
-                .inject(this);
+                .injectMembers(this);
     }
 
     @Override

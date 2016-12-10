@@ -3,7 +3,7 @@ package spinillos.dagger_espresso.presentation.di.module;
 import dagger.Binds;
 import dagger.Module;
 import dagger.multibindings.IntoMap;
-import spinillos.dagger_espresso.presentation.di.component.activity.ActivityComponentBuilder;
+import spinillos.dagger_espresso.presentation.di.component.activity.ComponentBuilder;
 import spinillos.dagger_espresso.presentation.di.component.activity.ActivityKey;
 import spinillos.dagger_espresso.presentation.main.MainActivity;
 import spinillos.dagger_espresso.presentation.main.di.MainComponent;
@@ -16,10 +16,10 @@ public abstract class ActivityBindingModule {
     @Binds
     @IntoMap
     @ActivityKey(MainActivity.class)
-    public abstract ActivityComponentBuilder mainActivity(MainComponent.Builder builder);
+    public abstract ComponentBuilder mainActivity(MainComponent.Builder builder);
 
     @Binds
     @IntoMap
     @ActivityKey(MenuActivity.class)
-    public abstract ActivityComponentBuilder menuActivity(MenuComponent.Builder builder);
+    public abstract ComponentBuilder menuActivity(MenuComponent.Builder builder);
 }
