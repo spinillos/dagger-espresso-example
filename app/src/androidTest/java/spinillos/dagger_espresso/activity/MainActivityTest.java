@@ -43,7 +43,6 @@ import static android.support.test.espresso.assertion.ViewAssertions.matches;
 import static android.support.test.espresso.intent.Intents.intended;
 import static android.support.test.espresso.intent.Intents.intending;
 import static android.support.test.espresso.intent.matcher.IntentMatchers.hasAction;
-import static android.support.test.espresso.intent.matcher.IntentMatchers.toPackage;
 import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static org.hamcrest.core.IsEqual.equalTo;
@@ -96,7 +95,7 @@ public class MainActivityTest {
     }
 
     @Test
-    public void showEmptyViewWhenNoPictures() throws Exception {
+    public void showEmptyViewWhenNoPictures() {
 
         respondWithNoData();
 
@@ -120,8 +119,22 @@ public class MainActivityTest {
     }
 
     @Test
-    public void testCamera() {
+    public void testRealCamera() {
         Assume.assumeTrue(TestUtils.hasFeature(PackageManager.FEATURE_CAMERA));
+
+        respondWithNoData();
+
+        mainActivity.launchActivity(null);
+
+        onView(withId(R.id.button_camera)).perform(click());
+
+        intended(hasAction(equalTo(MediaStore.ACTION_IMAGE_CAPTURE)));
+
+        onView(withId(R.id.recyclerView)).check(matches(withNumberOfItems(1)));
+    }
+
+    @Test
+    public void testCamera() {
 
         respondWithNoData();
 
@@ -137,11 +150,9 @@ public class MainActivityTest {
         Instrumentation.ActivityResult activityResult = new Instrumentation.ActivityResult(
                 Activity.RESULT_OK, data);
 
-        intending(toPackage("com.android.camera2")).respondWith(activityResult);
+        intending(hasAction(MediaStore.ACTION_IMAGE_CAPTURE)).respondWith(activityResult);
 
         onView(withId(R.id.button_camera)).perform(click());
-
-        intended(hasAction(equalTo(MediaStore.ACTION_IMAGE_CAPTURE)));
 
         onView(withId(R.id.recyclerView)).check(matches(withNumberOfItems(1)));
     }
@@ -172,7 +183,7 @@ public class MainActivityTest {
         List<Picture> list = new ArrayList<>();
 
         String path
-                = "http://www.publicdomainpictures.net/pictures/80000/nahled/kitty-cat-1395206763uwr.jpg";
+                = "/storage/emulated/0/Pictures/espresso_20161117_231613_321043582.jpg";
 
         for (int i = 0; i < num; i++) {
             Picture picture = new Picture();
